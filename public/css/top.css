@@ -1,0 +1,11 @@
+.title{
+  width:100%;
+  height:90vh;
+}
+.title h3{
+  font-family: "Noto Sans Japanese";
+  width: 100%;
+}
+main{
+  font-family: "Mplus 1p";
+}
