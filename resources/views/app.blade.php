@@ -11,7 +11,20 @@
   </head>
   <body>
     <header>
-
+      <nav class="teal lighten-2">
+        <div class="nav-wrapper container">
+          <a href="#" class="left brand-logo">Top</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            @if(Auth::check())
+              <li><a href="/mypage">{{Auth::user()->name}}</a></li>
+              <li><a href="/logout">ログアウト</a></li>
+            @else
+              <li><a href="/login">ログイン</a></li>
+              <li><a href="/register">新規登録</a></li>
+            @endif
+          </ul>
+        </div>
+      </nav>
 
     </header>
 

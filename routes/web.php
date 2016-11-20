@@ -13,3 +13,12 @@
 
 Route::get('/','TopController@index');
 Route::get('/product','ProductController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/logout',function(){
+  Auth::logout();
+  return redirect('/');
+});
