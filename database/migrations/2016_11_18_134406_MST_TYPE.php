@@ -14,7 +14,7 @@ class MSTTYPE extends Migration
     public function up()
     {
       Schema::create('MST_TYPE', function (Blueprint $table) {
-          $table->increments('id');
+          $table->integer('id');
           $table->string('name');
       });
     }

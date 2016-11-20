@@ -20,6 +20,7 @@ class MSTPRODUCT extends Migration
           $table->integer('size')->nullable();
           $table->integer('price');
           $table->integer('company_id')->nullable();
+          $table->string('img_url')->nullable();
       });
     }
 
