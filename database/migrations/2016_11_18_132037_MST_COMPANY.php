@@ -13,7 +13,7 @@ class MSTCOMPANY extends Migration
      */
     public function up()
     {
-      Schema::create('MST_COMPNAY', function (Blueprint $table) {
+      Schema::create('MST_COMPANY', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name');
       });
