@@ -13,10 +13,11 @@
 
 Route::get('/','TopController@index');
 Route::get('/product','ProductController@index');
+Route::get('/mypage',function(){
+  return view('mypage');
+});
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');
 
 Route::get('/logout',function(){
   Auth::logout();

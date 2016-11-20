@@ -13,7 +13,7 @@
     <header>
       <nav class="teal lighten-2">
         <div class="nav-wrapper container">
-          <a href="#" class="left brand-logo">Top</a>
+          <a href="/" class="left brand-logo"><img src="/img/logo.png" height="64"/></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             @if(Auth::check())
               <li><a href="/mypage">{{Auth::user()->name}}</a></li>
