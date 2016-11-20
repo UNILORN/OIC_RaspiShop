@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title','MyCart')
+@section('title','RaspiShop')
 @section('link','')
 @section('script','')
 

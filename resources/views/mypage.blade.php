@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title','MyCart')
+@section('title','MyPage')
 @section('link','')
 @section('script','')
 
