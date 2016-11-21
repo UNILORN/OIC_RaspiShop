@@ -5,6 +5,7 @@
 .title h3{
   font-family: "Noto Sans Japanese";
   width: 100%;
+  font-weight: lighter;
 }
 main{
   font-family: "Mplus 1p";

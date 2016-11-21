@@ -13,4 +13,5 @@ class ProductController extends Controller
       $osdata = MST_PRODUCT::where('type_id',3)->get();
       return view('product',["os"=>$osdata,"raspi"=>$raspidata,"sdcard"=>$sdcarddata]);
     }
+
 }
