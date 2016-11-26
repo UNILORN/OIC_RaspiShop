@@ -7,11 +7,11 @@ use App\MST_PRODUCT;
 
 class ProductController extends Controller
 {
-    public function index(){
-      $raspidata = MST_PRODUCT::where('type_id',1)->get();
-      $sdcarddata = MST_PRODUCT::where('type_id',2)->get();
-      $osdata = MST_PRODUCT::where('type_id',3)->get();
-      return view('product',["os"=>$osdata,"raspi"=>$raspidata,"sdcard"=>$sdcarddata]);
+    public function index(Request $request){
+      $raspi = MST_PRODUCT::where('type_id',1)->get();
+      $sdcard = MST_PRODUCT::where('type_id',2)->get();
+      $os = MST_PRODUCT::where('type_id',3)->get();
+      return view('product',compact('raspi','sdcard','os','request'));
     }
 
 }

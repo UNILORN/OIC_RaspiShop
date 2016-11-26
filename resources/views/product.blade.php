@@ -5,19 +5,14 @@
 @section('script','product.js')
 
 @section('content')
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
   <main class="container">
 
     <ul id="slide-out" class="side-nav">
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
       <li><a href="#!">Second Link</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     </ul>
 
-    <form action="/product" method="post">
-
+    <form action="/cart" method="post">
+      {{csrf_field()}}
       <h3>RaspberryPI</h3>
       <div class="row">
         @foreach ($raspi as $key => $value)
@@ -32,7 +27,7 @@
                 <p>¥{{$value->price}}</p>
               </div>
               <div class="card-action">
-                <input type="radio" name="raspi" id="raspi{{$key}}">
+                <input type="radio" name="raspi" id="raspi{{$key}}" value="{{$value->id}}">
                 <label for="raspi{{$key}}">Select</label>
               </div>
             </div>
@@ -54,7 +49,7 @@
                 <p>{{$value->name}}</p>
               </div>
               <div class="card-action">
-                <input type="radio" name="os" id="os{{$key}}">
+                <input type="radio" name="os" id="os{{$key}}" value="{{$value->id}}">
                 <label for="os{{$key}}">Select</label>
               </div>
             </div>
@@ -77,7 +72,7 @@
                 <p>¥{{$value->price}}</p>
               </div>
               <div class="card-action">
-                <input type="radio" name="sdcard" id="sdcard{{$key}}">
+                <input type="radio" name="sdcard" id="sdcard{{$key}}" value="{{$value->id}}">
                 <label for="sdcard{{$key}}">Select</label>
               </div>
             </div>
@@ -88,9 +83,11 @@
 
       <div class="row formfooter z-depth-5 valign-wrapper">
         <div class="container">
-          <div class="col s6 valign"></div>
-          <div class="col s3 valign"><span class="flow-text right">¥20000</span></div>
-          <div class="col s3 valign"><input type="submit" class="waves-effect waves-light btn" value="購入する"></div>
+          <div class="col s6 valign" id="itemslide">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">payment</i></a>
+          </div>
+          <div class="col s3 valign"><span class="flow-text right"></span></div>
+          <div class="col s3 valign"><input type="submit" class="waves-effect waves-light btn" value="カートに入れる"></div>
         </div>
       </div>
     </form>

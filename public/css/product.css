@@ -12,3 +12,15 @@ form h3{
   height: 60px;
   margin: auto;
 }
+
+footer{
+  margin-bottom:60px;
+}
+
+#itemslide a i{
+  font-size: 36px;
+}
+
+#itemslide a{
+  color: #555555;
+}

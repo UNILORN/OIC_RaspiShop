@@ -3,80 +3,61 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\MST_PRODUCT;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('cart');
+      $cart = session()->get('cart');
+      if(!empty($cart)){
+        foreach($cart as $key => $value){
+          $cart[$key]['raspi']  = MST_PRODUCT::find($cart[$key]['raspi']);
+          $cart[$key]['os']     = MST_PRODUCT::find($cart[$key]['os']);
+          $cart[$key]['sdcard'] = MST_PRODUCT::find($cart[$key]['sdcard']);
+        }
+      }
+
+      return view('cart',compact('cart'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+      $cartitem = [];
+      if(!empty(session()->get('cart'))){
+        $cartitem = session()->get('cart');
+      }
+      $cartitem[] = [
+        'raspi'   => $request->input('raspi'),
+        'os'      => $request->input('os'),
+        'sdcard'  => $request->input('sdcard')
+      ];
+      session()->put('cart',$cartitem);
+
+      return redirect('/cart');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
