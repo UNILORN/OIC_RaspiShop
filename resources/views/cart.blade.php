@@ -9,9 +9,13 @@
         <h3>Cart</h3>
         @if(!empty($cart))
             @foreach ($cart as $key => $value)
-                <div class="row">
+                <div class="row grey lighten-4">
                     <div class="col s3 m1">
-                        {{$key + 1}}
+                        <div class="card small z-depth-0 grey lighten-4">
+                            <div class="card-content itemnum">
+                                <p>{{$key + 1}}</p>
+                            </div>
+                        </div>
                     </div>
                     @foreach ($value as $innerkey => $innervalue)
                         <div class="col s3 m3">
@@ -27,14 +31,32 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="col s3 m1">
-                        {{$sumprice[$key]}}
+                    <div class="col s3 m2">
+                        <div class="card small z-depth-0 grey lighten-4">
+                            <div class="card-content itemsum">
+                                <p>小計</p>
+                                <p>¥{{$sumprice[$key]}}</p>
+                                <p><br><br></p>
+                                <p><a href="/cart/{{$key}}/delete" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             @endforeach
-            <div class="row">
-                <div class="col s3 m12">
-                    {{$allsumprice}}
+            <div class="row allsumtext grey lighten-4">
+                <div class="col s3 m6">
+                    <div class="card">
+                        <div class="card-content left">
+                            <p class="allsumtext">合計</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s3 m6">
+                    <div class="card">
+                        <div class="card-content right">
+                            <p class="allsumtext">¥ {{$allsumprice}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         @endif
