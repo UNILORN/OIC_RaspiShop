@@ -19,8 +19,8 @@
 
           <div class="col s12 m3">
             <div class="card small">
-              <div class="card-image white">
-                <img src="/img/{{$value->img_url}}" height="170">
+              <div class="card-image" >
+                  <div class="image-inner" style="background-image: url('/img/{{$value->img_url}}')"></div>
               </div>
               <div class="card-content">
                 <p>{{$value->name}}</p>
@@ -43,7 +43,7 @@
           <div class="col s12 m3">
             <div class="card small">
               <div class="card-image white">
-                <img src="/img/os/{{$value->img_url}}" height="180">
+                  <div class="image-inner" style="background-image: url('/img/{{$value->img_url}}')"></div>
               </div>
               <div class="card-content">
                 <p>{{$value->name}}</p>
@@ -65,7 +65,7 @@
           <div class="col s12 m2">
             <div class="card small">
               <div class="card-image white">
-                <img src="/img/SDcard/{{$value->img_url}}" height="140">
+                  <div class="image-inner" style="background-image: url('/img/{{$value->img_url}}')"></div>
               </div>
               <div class="card-content">
                 <p>{{$value->name}}</p>

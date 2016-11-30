@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/app.css" media="screen" title="no title">
+    {{--<link rel="stylesheet" href="/css/app.css" media="screen" title="no title">--}}
     <link rel="stylesheet" href="/css/@yield('link')" media="screen" title="no title">
     <script src="/js/@yield('script')"></script>
   </head>

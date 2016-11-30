@@ -52,7 +52,7 @@ class MST_PTODUCT extends Seeder
           'size' => 16,
           'price' => 580,
           'company_id' => 1,
-          'img_url' => 'SAMSUNG_16evo.jpg'
+          'img_url' => 'SDcard/SAMSUNG_16evo.jpg'
       ]);
       DB::table('MST_PRODUCT')->insert([
           'type_id' => 2,
@@ -60,7 +60,7 @@ class MST_PTODUCT extends Seeder
           'size' => 32,
           'price' => 1625,
           'company_id' => 1,
-          'img_url' => 'SAMSUNG_32evo.jpg'
+          'img_url' => 'SDcard/SAMSUNG_32evo.jpg'
       ]);
       DB::table('MST_PRODUCT')->insert([
           'type_id' => 2,
@@ -68,7 +68,7 @@ class MST_PTODUCT extends Seeder
           'size' => 64,
           'price' => 3666,
           'company_id' => 1,
-          'img_url' => 'SAMSUNG_64evo.jpg'
+          'img_url' => 'SDcard/SAMSUNG_64evo.jpg'
       ]);
       DB::table('MST_PRODUCT')->insert([
           'type_id' => 2,
@@ -76,7 +76,7 @@ class MST_PTODUCT extends Seeder
           'size' => 128,
           'price' => 7674,
           'company_id' => 1,
-          'img_url' => 'SAMSUNG_128evo.jpg'
+          'img_url' => 'SDcard/SAMSUNG_128evo.jpg'
       ]);
 
       DB::table('MST_PRODUCT')->insert([
@@ -85,7 +85,7 @@ class MST_PTODUCT extends Seeder
           'size' => 32,
           'price' => 2645,
           'company_id' => 1,
-          'img_url' => 'SAMSUNG_32pro.jpg'
+          'img_url' => 'SDcard/SAMSUNG_32pro.jpg'
       ]);
       DB::table('MST_PRODUCT')->insert([
           'type_id' => 2,
@@ -93,20 +93,20 @@ class MST_PTODUCT extends Seeder
           'size' => 64,
           'price' => 4816,
           'company_id' => 1,
-          'img_url' => 'SAMSUNG_64pro.jpg'
+          'img_url' => 'SDcard/SAMSUNG_64pro.jpg'
       ]);
 
       //
       // OS
       //
       $os = [
-        "CentOS"      => "centos.png",
-        "Noobs"       => "noobs.png",
-        "Raspbian"    => "raspbian.png",
-        "Ubuntu"      => "ubuntu.png",
-        "Ubuntu Core" => "ubuntucore.png",
-        "Ubuntu Mate" => "ubuntumate.png",
-        "Windows10"   => "windows10.png"
+        "CentOS"      => "os/centos.png",
+        "Noobs"       => "os/noobs.png",
+        "Raspbian"    => "os/raspbian.png",
+        "Ubuntu"      => "os/ubuntu.png",
+        "Ubuntu Core" => "os/ubuntucore.png",
+        "Ubuntu Mate" => "os/ubuntumate.png",
+        "Windows10"   => "os/windows10.png"
       ];
       foreach ($os as $key => $value) {
         DB::table('MST_PRODUCT')->insert([
