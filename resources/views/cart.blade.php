@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="card-content">
                                     <p>{{$innervalue->name}}</p>
-                                    <p>¥{{$innervalue->price}}</p>
+                                    <p style="font-size: 25px;">¥ {{$innervalue->price}}</p>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         <div class="card small z-depth-0 grey lighten-4">
                             <div class="card-content itemsum">
                                 <p>小計</p>
-                                <p>¥{{$sumprice[$key]}}</p>
+                                <p>¥ {{$sumprice[$key]}}</p>
                                 <p><br><br></p>
                                 <p><a href="/cart/{{$key}}/delete" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></p>
                             </div>
