@@ -6,15 +6,15 @@
 
 @section('content')
     <main class="container">
-
         <ul id="slide-out" class="side-nav">
             <li><a href="">Cart Info</a></li>
             @foreach($cart as $key => $value)
                 <li class="grey lighten-2"><a href="#">{{$key}}</a></li>
-                <li><a href="#">{{$value["raspi"]->name}}</a></li>
+                <li><a href="#">{{$value["raspi"]->name}} : ¥{{$value["raspi"]->price}}</a></li>
                 <li><a href="#">{{$value["os"]->name}}</a></li>
-                <li><a href="#">{{$value["sdcard"]->name}}</a></li>
+                <li><a href="#">{{$value["sdcard"]->name}} : ¥{{$value["sdcard"]->price}}</a></li>
             @endforeach
+            <li class="red lighten-3"><a href="#">合計金額 : ¥{{$allsumprice}}</a></li>
             <li class="light-blue lighten-2"><a href="/cart">カートを見る</a></li>
         </ul>
 

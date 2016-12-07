@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MST_PRODUCT;
+use App\MST_COMPANY;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,7 @@ class ProductController extends Controller
         $sdcard = MST_PRODUCT::where('type_id', 2)->get();
         $os = MST_PRODUCT::where('type_id', 3)->get();
 
-        $cart = session()->get('cart');
+        $cart = session()->get('cart',[]);
         $allsumprice = 0;
         $sumprice = [];
         if (!empty($cart)) {
@@ -29,7 +30,6 @@ class ProductController extends Controller
 
             }
         }
-
 
         return view('product', compact('raspi', 'sdcard', 'os', 'request', 'cart' , 'allsumprice', 'sumprice'));
     }
