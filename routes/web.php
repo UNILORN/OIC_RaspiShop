@@ -15,6 +15,7 @@ Route::get('/','TopController@index');
 Route::get('/product','ProductController@index');
 Route::resource('/cart','CartController');
 Route::get('/cart/{id}/delete','CartController@destroy');
+Route::get('/buy','BuyController@index');
 Route::get('/mypage',function(){
   return view('mypage');
 });
