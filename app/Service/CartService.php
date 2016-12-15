@@ -2,49 +2,66 @@
 namespace App\Service;
 
 use Illuminate\Support\Facades\DB;
+use App\MST_PRODUCT;
 
 class CartService
 {
 
     private $allsumprice = 0;
+    private $sumprice = [];
 
-    public function addItem($id){
 
-    }
-    public function clear(){
-
-    }
-    public function removeItem($index){
-        session()->forget("items.$index"); //sessionから選んだ商品を削除。例えば$items[0]の削除は items.0 と指定できる。
-    }
-    public function getItems(){
-        $items = session()->get("items",[]); //セッションデータを取得、nullの場合は空の配列
-        return $items;
+    public function getAllPrice()
+    {
+        return $this->allsumprice;
     }
 
-    public function getItem(){
-        $cartarray = [];
+    public function getPrice()
+    {
+        return $this->sumprice;
+    }
+
+    public function getItem()
+    {
         $cart = session()->get('cart');
-        $allsumprice = 0;
+        $this->allsumprice = 0;
 
         if (!empty($cart)) {
             foreach ($cart as $key => $value) {
-                $sumprice[$key] = 0;
+                $this->sumprice[$key] = 0;
                 $cart[$key]['raspi']  = MST_PRODUCT::find($cart[$key]['raspi']);
                 $cart[$key]['os']     = MST_PRODUCT::find($cart[$key]['os']);
                 $cart[$key]['sdcard'] = MST_PRODUCT::find($cart[$key]['sdcard']);
-                foreach ($cart[$key] as $innerkey => $innervalue){
-                    $allsumprice += $innervalue->price;
-                    $sumprice[$key]    += $innervalue->price;
+                foreach ($cart[$key] as $innerkey => $innervalue) {
+                    $this->allsumprice    += $innervalue->price;
+                    $this->sumprice[$key] += $innervalue->price;
                 }
             }
+        } else {
+            $cart = [];
         }
 
-        $cartarray[] = $cart;
-        $cartarray[] = $sumprice;
-        $cartarray[] = $allsumprice;
+        return $cart;
+    }
 
-        return $cartarray;
+    public function storeItem($request)
+    {
+        $cartitem = [];
+        if (!empty(session()->get('cart'))) {
+            $cartitem = session()->get('cart');
+        }
+        $cartitem[] = [
+            'raspi' => $request->input('raspi'),
+            'os' => $request->input('os'),
+            'sdcard' => $request->input('sdcard')
+        ];
+        session()->put('cart', $cartitem);
+
+    }
+
+    public function destroyItem($id)
+    {
+        session()->forget("cart.$id");
     }
 
 }

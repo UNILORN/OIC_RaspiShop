@@ -63,7 +63,7 @@
                 <div class="col s3 m12">
                     <div class="card">
                         <div class="card-content right">
-                            <button class="btn">購入</button>
+                            <button class="btn" onclick="location.href='/buy'">購入</button>
                         </div>
                     </div>
                 </div>

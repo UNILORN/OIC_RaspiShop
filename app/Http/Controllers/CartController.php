@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CartForm;
 use Illuminate\Http\Request;
 use App\MST_PRODUCT;
+use App\Service\CartService;
 
 class CartController extends Controller
 {
 
     public function index()
     {
-
+        $c_cart = new CartService();
+        $cart        = $c_cart->getItem();
+        $allsumprice = $c_cart->getAllPrice();
+        $sumprice    = $c_cart->getPrice();
 
         return view('cart', compact('cart','allsumprice','sumprice'));
     }
@@ -23,16 +27,8 @@ class CartController extends Controller
 
     public function store(CartForm $request)
     {
-        $cartitem = [];
-        if (!empty(session()->get('cart'))) {
-            $cartitem = session()->get('cart');
-        }
-        $cartitem[] = [
-            'raspi' => $request->input('raspi'),
-            'os' => $request->input('os'),
-            'sdcard' => $request->input('sdcard')
-        ];
-        session()->put('cart', $cartitem);
+        $c_cart = new CartService();
+        $c_cart->storeItem($request);
 
         return redirect('/cart');
     }
@@ -54,7 +50,9 @@ class CartController extends Controller
 
     public function destroy($id)
     {
-        session()->forget("cart.$id");
+        $c_cart = new CartService();
+        $c_cart->destroyItem($id);
+
         return redirect('/cart');
     }
 }
