@@ -22,7 +22,7 @@ Route::get('/buy', 'BuyController@index');
 Route::post('/buy','BuyController@store');
 Route::get('/buy/success','BuyController@success');
 
-
+ROute::get('/admin','AdminController@index');
 Route::get('/mypage', function () {
     return view('mypage');
 });
@@ -32,4 +32,8 @@ Auth::routes();
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
+});
+
+Route::get('/session',function(){
+   session()->flush();
 });

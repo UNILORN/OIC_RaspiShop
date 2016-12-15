@@ -25,8 +25,7 @@ class CartService
     {
         $cart = session()->get('cart');
         $this->allsumprice = 0;
-
-        if (!empty($cart)) {
+        if (isset($cart)) {
             foreach ($cart as $key => $value) {
                 $this->sumprice[$key] = 0;
                 $cart[$key]['raspi']  = MST_PRODUCT::find($cart[$key]['raspi']);
@@ -62,6 +61,10 @@ class CartService
     public function destroyItem($id)
     {
         session()->forget("cart.$id");
+    }
+
+    public function deleteItem(){
+        session()->forget('cart');
     }
 
 }

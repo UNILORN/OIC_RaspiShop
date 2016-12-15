@@ -9,6 +9,7 @@
         <h3>お届け先入力</h3>
         <div class="row">
             <form action="/buy" class="col s12" method="post">
+                {{csrf_field()}}
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="name" type="text" name="name" required>
