@@ -11,18 +11,25 @@
 |
 */
 
-Route::get('/','TopController@index');
-Route::get('/product','ProductController@index');
-Route::resource('/cart','CartController');
-Route::get('/cart/{id}/delete','CartController@destroy');
-Route::get('/buy','BuyController@index');
-Route::get('/mypage',function(){
-  return view('mypage');
+Route::get('/', 'TopController@index');
+
+Route::get('/product', 'ProductController@index');
+
+Route::resource('/cart', 'CartController');
+Route::get('/cart/{id}/delete', 'CartController@destroy');
+
+Route::get('/buy', 'BuyController@index');
+Route::post('/buy','BuyController@store');
+Route::get('/buy/success','BuyController@success');
+
+
+Route::get('/mypage', function () {
+    return view('mypage');
 });
 
 Auth::routes();
 
-Route::get('/logout',function(){
-  Auth::logout();
-  return redirect('/');
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
 });
