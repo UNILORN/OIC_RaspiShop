@@ -11,22 +11,7 @@ class CartController extends Controller
 
     public function index()
     {
-        $cart = session()->get('cart');
-        $allsumprice = 0;
-        $sumprice = [];
-        if (!empty($cart)) {
-            foreach ($cart as $key => $value) {
-                $sumprice[$key] = 0;
-                $cart[$key]['raspi'] = MST_PRODUCT::find($cart[$key]['raspi']);
-                $cart[$key]['os'] = MST_PRODUCT::find($cart[$key]['os']);
-                $cart[$key]['sdcard'] = MST_PRODUCT::find($cart[$key]['sdcard']);
-                foreach ($cart[$key] as $innerkey => $innervalue){
-                    $allsumprice += $innervalue->price;
-                    $sumprice[$key]    += $innervalue->price;
-                }
 
-            }
-        }
 
         return view('cart', compact('cart','allsumprice','sumprice'));
     }

@@ -59,6 +59,15 @@
                     </div>
                 </div>
             </div>
+            <div class="row grey lighten-4">
+                <div class="col s3 m12">
+                    <div class="card">
+                        <div class="card-content right">
+                            <button class="btn">購入</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endif
     </main>
 @endsection
