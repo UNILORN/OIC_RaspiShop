@@ -16,6 +16,11 @@ class MSTSALES extends Migration
       Schema::create('MST_SALES', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('sum_price');
+          $table->string('name');
+          $table->string('sex');
+          $table->string('post_num');
+          $table->string('address');
+          $table->string('email');
           $table->timestamp('created_at')->nullable();
       });
     }
