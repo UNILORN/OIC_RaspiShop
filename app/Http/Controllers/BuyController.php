@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Service\CartService;
-use App\MST_SALES_DETAILS;
-use App\MST_SALES;
-use Carbon\Carbon;
+use App\Service\BuyService;
 
 class BuyController extends Controller
 {
@@ -22,32 +21,10 @@ class BuyController extends Controller
 
     // 購入処理
     public function store(Request $request){
-        $c_cart   = new CartService();
-        $cart     = $c_cart->getItem();
-        $sumprice = $c_cart->getAllPrice();
-        $id       = Carbon::now()->timestamp . rand(100,999);
+        $buy = new BuyService();
+        $id  = Carbon::now()->timestamp;
+        $buy->addBuy($request,$id);
 
-        MST_SALES::insert([
-            'id'        => $id,
-            'sum_price' => $sumprice,
-            'name'      => $request->input('name'),
-            'sex'       => $request->input('sex'),
-            'post_num'  => $request->input('post_num'),
-            'address'   => $request->input('address'),
-            'email'     => $request->input('email')
-        ]);
-
-        foreach ($cart as $cart_num){
-            foreach ($cart_num as $value){
-                MST_SALES_DETAILS::insert([
-                    'sales_id' => $id,
-                    'product_id' => $value->id,
-                    'price' => $value->price
-                ]);
-            }
-        }
-
-        $c_cart->deleteItem();
         return redirect('/buy/success')->with('SalesId',$id);
     }
 
