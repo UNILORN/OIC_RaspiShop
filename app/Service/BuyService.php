@@ -9,16 +9,16 @@ use App\MST_SALES;
 class BuyService
 {
 
-    public function addBuy($request,$id,$user_id)
+    public function addBuy($request,$id,$user_id = NULL)
     {
 
         $c_cart    = new CartService();
         $cart      = $c_cart->getItem();
         $sumprice  = $c_cart->getAllPrice();
 
-        if(empty($user_id)){
-           $user_id = NULL;
-        }
+//        if(empty($user_id)){
+//           $user_id = NULL;
+//        }
         MST_SALES::insert([
             'id'         => $id,
             'sum_price'  => $sumprice,

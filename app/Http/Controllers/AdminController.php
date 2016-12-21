@@ -7,13 +7,24 @@ use App\Service\BuyService;
 
 class AdminController extends Controller
 {
+    protected $buy;
+
+    /**
+     * AdminController constructor.
+     * @param $buy
+     */
+    public function __construct(BuyService $buy)
+    {
+        $this->buy = $buy;
+    }
+
+
     public function index()
     {
         if (!session()->get('admin')) {
             return redirect('/admin/check');
         }
-        $sales = new BuyService();
-        $sales = $sales->getBuy();
+        $sales = $this->buy->getBuy();
         $sales = $sales->paginate(5);
         return view('admin', compact('sales'));
     }
