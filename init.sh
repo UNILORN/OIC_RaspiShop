@@ -1,7 +1,4 @@
 #!/bin/sh
-
-composer install
-
 cp .env.example .env
 
 echo "====================================================="
@@ -47,5 +44,5 @@ else
 
 fi
 
-#php artisan migrate
-#php artisan db:seed
+php artisan migrate
+php artisan db:seed

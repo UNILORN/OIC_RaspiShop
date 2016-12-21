@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MST_SALES_DETAILS::class);
         $this->call(MST_SALES_TYPE::class);
         $this->call(MST_SALES::class);
+        $this->call(MST_user::class);
     }
 }

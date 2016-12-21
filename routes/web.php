@@ -19,13 +19,16 @@ Route::resource('/cart', 'CartController');
 Route::get('/cart/{id}/delete', 'CartController@destroy');
 
 Route::get('/buy', 'BuyController@index');
-Route::post('/buy','BuyController@store');
-Route::get('/buy/success','BuyController@success');
+Route::post('/buy', 'BuyController@store');
+Route::get('/buy/success', 'BuyController@success');
 
-ROute::get('/admin','AdminController@index');
-Route::get('/mypage', function () {
-    return view('mypage');
-});
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/check','AdminController@check');
+Route::post('/admin','AdminController@store');
+Route::get('/admin/logout','AdminController@logout');
+
+Route::get('/mypage', 'MypageController@index');
+
 
 Auth::routes();
 
@@ -34,6 +37,6 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-Route::get('/session',function(){
-   session()->flush();
+Route::get('/session', function () {
+    session()->flush();
 });

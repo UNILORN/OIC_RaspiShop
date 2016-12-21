@@ -21,6 +21,7 @@ class MSTSALES extends Migration
           $table->string('post_num');
           $table->string('address');
           $table->string('email');
+          $table->integer('user_id')->nullable();
           $table->timestamp('created_at')->nullable();
       });
     }

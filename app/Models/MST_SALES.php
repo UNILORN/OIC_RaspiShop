@@ -12,4 +12,11 @@ class MST_SALES extends Model
     public function Detail(){
         return $this->hasMany('\App\MST_SALES_DETAILS','sales_id');
     }
+
+    public function scopeUser($query,$id){
+        if(!empty($id)){
+            $query = $query->where('user_id',$id);
+        }
+        return $query;
+    }
 }

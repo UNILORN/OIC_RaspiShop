@@ -14,40 +14,13 @@
     <script src="/js/@yield('script')"></script>
 </head>
 <body>
-<button onclick="location.href='/admin/logout'"> logout!!!!</button>
 <main class="container">
-    <h4>注文表</h4>
-    <table class="striped">
-        <thead>
-        <tr>
-            <th data-field="id">ID</th>
-            <th data-field="name">氏名</th>
-            <th data-field="name">購入商品</th>
-            <th data-field="name">購入日</th>
-            <th data-field="price">合計金額</th>
-
-        </tr>
-        </thead>
-
-        <tbody>
-        @foreach($sales as $value)
-        <tr>
-            <td>{{$value->id}}</td>
-            <td>{{$value->name}}</td>
-            <td>
-                <ul>
-                    @foreach($value->Detail as $in_value)
-                        <li>{{$in_value->product_id}} : ¥ {{$in_value->price}}</li>
-                    @endforeach
-                </ul>
-            </td>
-            <td>{{$value->created_at}}</td>
-            <td>¥ {{$value->sum_price}}</td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
-    {{$sales->links()}}
+    <h4>管理者のパスコードを入力</h4>
+    <form action="/admin" class="form-control" method="post">
+        {{csrf_field()}}
+        <input type="text" name="pass" class="form-control" placeholder="パスコード" required>
+        <input type="submit" class="form-control">
+    </form>
 </main>
 
 

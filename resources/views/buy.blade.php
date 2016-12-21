@@ -12,7 +12,7 @@
                 {{csrf_field()}}
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="name" type="text" name="name" required>
+                        <input id="name" type="text" name="name" value="{{array_get($user,'name','')}}" required>
                         <label for="name">氏名</label>
                     </div>
                 </div>
@@ -53,25 +53,25 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s5">
-                        <input id="post-num" type="text" name="post_num" required>
+                        <input id="post-num" type="text" name="post_num" value="{{array_get($user,'post','')}}" required>
                         <label for="post-num">郵便番号</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="address" type="text" name="address" required>
+                        <input id="address" type="text" name="address"  value="{{array_get($user,'address','')}}" required>
                         <label for="address">住所</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="phone" type="text" name="phone" required>
+                        <input id="phone" type="text" name="phone"  value="{{array_get($user,'phone','')}}" required>
                         <label for="phone">電話番号</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" name="email" required>
+                        <input id="email" type="email" name="email" value="{{array_get($user,'email','')}}" required>
                         <label for="email">メールアドレス</label>
                     </div>
                 </div>

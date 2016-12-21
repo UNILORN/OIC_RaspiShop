@@ -22,7 +22,8 @@ class MST_SALES extends Seeder
                 'post_num' => $faker->postcode(),
                 'address' => $faker->address(),
                 'email' => $faker->email(),
-                'created_at' => $faker->dateTime()
+                'created_at' => $faker->dateTime(),
+                'user_id' => NULL
             ]);
         }
     }
